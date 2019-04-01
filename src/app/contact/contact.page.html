@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="go_back()" color="clear" style="color: black" slot="start">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-title>
+      <span [hidden]="!is_empty_contact">
+          Agregar Contacto
+      </span>
+      <span [hidden]="is_empty_contact">
+        Actualizar Contacto
+      </span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let p of contact_items">
+    <ion-label position="floating">
+      {{p[0]}}
+    </ion-label>
+    <ion-textarea [(ngModel)]="contact[p[1]]" row="1"></ion-textarea>
+  </ion-item>
+  <div class="buttons">
+    <ion-button (click)="add_contact()" [hidden]="!is_empty_contact" padding>
+      Agregar
+    </ion-button>
+    <ion-button (click)="update_contact()" [hidden]="is_empty_contact" padding>
+      Actualizar
+    </ion-button>
+    <ion-button (click)="delete_contact()" [hidden]="is_empty_contact" padding>
+      Borrar
+    </ion-button>
+  </div>  
+
+
+
+</ion-content>

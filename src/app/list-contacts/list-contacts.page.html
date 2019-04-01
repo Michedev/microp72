@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>    
+    <ion-title>Libreta de contactos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let c of contacts  | async " (click)="goto_contact(c)">
+      <div slot="start">
+        <img src="../../assets/icon/user.png" width="48px" height="48px">
+      </div>
+        <ion-label>
+          <h1>
+            {{c.name}}
+          </h1>
+          <span>
+            {{c.company}}
+          </span> <br>
+          <span>
+            {{c.email}}
+          </span>
+        </ion-label>
+      <p>
+        {{c.cellnum}}
+      </p>
+
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="newcontact()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  
+  
+
+</ion-content>
